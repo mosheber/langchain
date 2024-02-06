@@ -87,6 +87,7 @@ from langchain_community.embeddings.vertexai import VertexAIEmbeddings
 from langchain_community.embeddings.volcengine import VolcanoEmbeddings
 from langchain_community.embeddings.voyageai import VoyageEmbeddings
 from langchain_community.embeddings.xinference import XinferenceEmbeddings
+from langchain_community.embeddings.optimum_intel import QuantizedBiEncoderEmbeddings
 
 logger = logging.getLogger(__name__)
 
@@ -148,6 +149,7 @@ __all__ = [
     "BookendEmbeddings",
     "VolcanoEmbeddings",
     "OCIGenAIEmbeddings",
+    "QuantizedBiEncoderEmbeddings"
 ]
 
 
