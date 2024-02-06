@@ -17,12 +17,10 @@ class QuantizedBiEncoderEmbeddings(BaseModel, Embeddings):
 
             from langchain_community.embeddings import QuantizedBiEncoderEmbeddings
 
-            model_name = "Intel/bge-large-en-v1.5-rag-int8-static"
-            model_kwargs = {'device': 'cpu'}
+            model_name = "Intel/bge-small-en-v1.5-rag-int8-static"
             encode_kwargs = {'normalize_embeddings': True}
             hf = QuantizedBiEncoderEmbeddings(
                 model_name=model_name,
-                model_kwargs=model_kwargs,
                 encode_kwargs=encode_kwargs,
                 query_instruction="Represent this sentence for searching relevant passages: "
             )
