@@ -4,7 +4,6 @@ import pandas as pd
 import torch
 from langchain_core.embeddings import Embeddings
 from langchain_core.pydantic_v1 import BaseModel, Extra
-from optimum.intel import IPEXModel
 from tqdm import tqdm
 from transformers import AutoTokenizer
 
@@ -54,15 +53,25 @@ class QuantizedBiEncoderEmbeddings(BaseModel, Embeddings):
         self.query_instruction = query_instruction
         self.document_instruction = document_instruction
 
-        self.warm_up()
+        self.load_model()
 
-    def warm_up(self):
+    def load_model(self):
         try:
+            from optimum.intel import IPEXModel
+
             self.transformer_model = IPEXModel.from_pretrained(
                 self.model_name_or_path, **self.model_kwargs
             )
         except Exception as e:
-            raise Exception(f"Failed to load {self.model_name_or_path}: {e}")
+            raise Exception(
+                f"""
+Failed to load model {self.model_name_or_path}, due to the following error:
+{e}
+Please ensure that you have installed optimum-intel and ipex correctly.
+* Install optimum-intel as shown here: https://github.com/huggingface/optimum-intel.
+* Install IPEX as shown here: https://intel.github.io/intel-extension-for-pytorch/index.html#installation?platform=cpu&version=v2.2.0%2Bcpu.
+"""
+            )
         self.transformer_tokenizer = AutoTokenizer.from_pretrained(
             pretrained_model_name_or_path=self.model_name_or_path,
         )
