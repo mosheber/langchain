@@ -58,7 +58,7 @@ EXPECTED_ALL = [
     "BookendEmbeddings",
     "VolcanoEmbeddings",
     "OCIGenAIEmbeddings",
-    "QuantizedBiEncoderEmbeddings"
+    "QuantizedBiEncoderEmbeddings",
 ]
 
 

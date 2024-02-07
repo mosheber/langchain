@@ -70,6 +70,7 @@ from langchain_community.embeddings.oci_generative_ai import OCIGenAIEmbeddings
 from langchain_community.embeddings.octoai_embeddings import OctoAIEmbeddings
 from langchain_community.embeddings.ollama import OllamaEmbeddings
 from langchain_community.embeddings.openai import OpenAIEmbeddings
+from langchain_community.embeddings.optimum_intel import QuantizedBiEncoderEmbeddings
 from langchain_community.embeddings.sagemaker_endpoint import (
     SagemakerEndpointEmbeddings,
 )
@@ -87,7 +88,6 @@ from langchain_community.embeddings.vertexai import VertexAIEmbeddings
 from langchain_community.embeddings.volcengine import VolcanoEmbeddings
 from langchain_community.embeddings.voyageai import VoyageEmbeddings
 from langchain_community.embeddings.xinference import XinferenceEmbeddings
-from langchain_community.embeddings.optimum_intel import QuantizedBiEncoderEmbeddings
 
 logger = logging.getLogger(__name__)
 
@@ -149,7 +149,7 @@ __all__ = [
     "BookendEmbeddings",
     "VolcanoEmbeddings",
     "OCIGenAIEmbeddings",
-    "QuantizedBiEncoderEmbeddings"
+    "QuantizedBiEncoderEmbeddings",
 ]
 
 
