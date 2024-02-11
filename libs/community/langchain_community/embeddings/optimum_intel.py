@@ -67,7 +67,12 @@ class QuantizedBiEncoderEmbeddings(BaseModel, Embeddings):
                 f"""
 Failed to load model {self.model_name_or_path}, due to the following error:
 {e}
-Please ensure that you have installed optimum-intel and ipex correctly.
+Please ensure that you have installed optimum-intel and ipex correctly,using:
+
+pip install optimum[neural-compressor]
+pip install intel_extension_for_pytorch
+
+For more information, please visit:
 * Install optimum-intel as shown here: https://github.com/huggingface/optimum-intel.
 * Install IPEX as shown here: https://intel.github.io/intel-extension-for-pytorch/index.html#installation?platform=cpu&version=v2.2.0%2Bcpu.
 """
